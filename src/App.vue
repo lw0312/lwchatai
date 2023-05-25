@@ -44,8 +44,7 @@ const dataDelete = () => {
 
 <style>
 .outer {
-  width: 500px;
-  height: 500px;
+  height: 97vh;
   border: skyblue 10px solid;
   background-color: #cfeaff;
   display: flex;
@@ -57,8 +56,8 @@ const dataDelete = () => {
 }
 
 .content {
-  width: 480px;
-  height: 400px;
+  width: 95vw;
+  height: 80vh;
   background-color: #fff;
   margin: 0 auto;
   position: relative;
@@ -68,11 +67,11 @@ const dataDelete = () => {
 }
 
 .console {
-  width: 500px;
-  height: 50px;
+  width: 95vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 0 auto;
 }
 
 p {
@@ -80,6 +79,7 @@ p {
   margin: 5px 0;
   display: block;
   text-align: end;
+  font-size: 2vw;
 }
 
 .box {
@@ -108,3 +108,4 @@ input {
   height: 55px;
 }
 </style>
+
