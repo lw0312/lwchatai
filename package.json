@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^10.1.2",
     "axios": "^1.4.0",
+    "scroll": "^3.0.1",
     "vant": "^4.4.0",
     "vue": "^3.3.2"
   },

@@ -1,11 +1,10 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onUpdated } from 'vue'
 import axios from 'axios'
 const dataUser = ref(null)
 const dataAll = ref('')
 const dataRes = ref('')
 const flag = ref(false)
-
 // AI 响应信息
 const dataAI = async () => {
   flag.value = true
@@ -27,13 +26,20 @@ const send = () => {
 const dataDelete = () => {
   dataAll.value = ''
 }
+// 消息更新自动滚动到最底部
+const el = ref()
+onUpdated(() => {
+  el.value.scrollTo({
+    top: el.value.scrollHeight,
+    behavior: 'smooth',
+  })
+})
 </script>
 
 <template>
   <div class="outer">
     <van-loading type="spinner" color="#1989fa" v-show="flag" />
-    <div class="content" v-html="dataAll">
-    </div>
+    <div class="content" ref="el" v-html="dataAll"></div>
     <div class="console">
       <input type="text" placeholder="请输入内容" @keydown.enter="send" v-model="dataUser">
       <button class="btn1" @click="send">发言</button>
@@ -51,8 +57,6 @@ const dataDelete = () => {
   flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
-  position: relative;
-  overflow: hidden;
 }
 
 .content {
@@ -79,7 +83,7 @@ p {
   margin: 5px 0;
   display: block;
   text-align: end;
-  font-size: 2vw;
+  font-size: 3vw;
 }
 
 .box {
@@ -108,4 +112,3 @@ input {
   height: 55px;
 }
 </style>
-
