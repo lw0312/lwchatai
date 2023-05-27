@@ -3,18 +3,33 @@ import { ref, onUpdated } from 'vue'
 import axios from 'axios'
 const dataUser = ref(null)
 const dataAll = ref('')
-const dataRes = ref('')
 const flag = ref(false)
 // AI 响应信息
 const dataAI = async () => {
   flag.value = true
-  const res = await axios({
+  let res = await axios({
     method: 'GET',
     url: `https://v2.api-m.com/api/chatgpt?msg=${dataUser.value}`,
   })
-  dataRes.value = res.data.data
-  dataAll.value += `<p class="dataAi"><span class="box2">${dataRes.value}</span></p>`
+  dataAll.value += `<pre>${dataFrom(res)}</pre>`
   flag.value = false
+}
+// 转义ai响应信息
+const dataFrom = (res) => {
+  let dataCode = res.data.data.split('')
+  console.log(dataCode);
+  dataCode = dataCode.map(char => {
+    if (char === '<') {
+      return '&lt;'
+    } else if (char === '>') {
+      return '&gt;'
+    } else {
+      return char
+    }
+  })
+  dataCode = dataCode.join('')
+  console.log(dataCode);
+  return dataCode
 }
 // 发送信息
 const send = () => {
@@ -35,7 +50,6 @@ onUpdated(() => {
   })
 })
 </script>
-
 <template>
   <div class="outer">
     <van-loading type="spinner" color="#1989fa" v-show="flag" />
@@ -49,6 +63,14 @@ onUpdated(() => {
 </template>
 
 <style>
+pre {
+  background-color: #bfa;
+  font-size: 2vw;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
 .outer {
   height: 97vh;
   border: skyblue 10px solid;
@@ -89,15 +111,6 @@ p {
 .box {
   background-color: #87ceeb;
 
-}
-
-.box2 {
-  background-color: #bfa;
-}
-
-.dataAi {
-  text-align: justify;
-  background-color: #fff;
 }
 
 input {
