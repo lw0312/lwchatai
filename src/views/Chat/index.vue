@@ -156,6 +156,7 @@ pre {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
+    font-size: 6px;
 }
 
 p {
@@ -167,7 +168,7 @@ p {
 }
 
 .box {
-    font-size: 2.4vh;
+    font-size: 4vw;
     font-weight: bold;
     color: #999;
 }
@@ -179,17 +180,17 @@ input {
     background-color: transparent;
     border-bottom: 1px solid #777;
     color: #ccc !important;
-    font-size: 2vh !important;
+    font-size: 2em !important;
 }
 
 .btn1,
 .btn2 {
-    width: 13%;
+    width: 14%;
     height: 3vh;
     border: none;
     background-color: transparent;
     color: #777;
-    font-size: 2vh;
+    font-size: 2em;
 }
 
 ::-webkit-scrollbar {
@@ -223,8 +224,6 @@ input {
         flex-direction: column;
         justify-content: space-around;
         z-index: -2;
-        border-left: 1px solid black;
-        border-right: 1px solid black;
         background-color: black;
     }
 
@@ -278,10 +277,11 @@ input {
         justify-content: space-between;
         align-items: center;
         margin: 0 auto;
+        font-size: 16px;
     }
 
     pre {
-        font-size: 70px;
+        font-size: 1.4vw;
         white-space: pre-wrap;
         word-wrap: break-word;
         font-weight: 500;
@@ -295,7 +295,7 @@ input {
         background-color: transparent;
         border-bottom: 1px solid #777;
         color: #ccc !important;
-        font-size: 2vh !important;
+        font-size: 2.1vh !important;
     }
 
     .btn1,
@@ -305,11 +305,11 @@ input {
         border: none;
         background-color: transparent;
         color: #777;
-        font-size: 2vh;
+        font-size: 2.3vh;
     }
 
     .box {
-        font-size: 120px;
+        font-size: 5vh;
         font-weight: bold;
         color: #999;
     }
