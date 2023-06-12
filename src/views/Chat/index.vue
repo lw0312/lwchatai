@@ -9,13 +9,37 @@ const flag = ref(false)
 const bgColor = computed(() => {
     return useStore.flag ? '#fff' : '#000'
 })
+// 发送信息
+const send = () => {
+    if (dataUserTest(dataUser.value)) {
+        dataAll.value += `<p><span class="box">${dataUserFrom(dataUser.value)}</span></p>`
+        dataAI()
+        dataUser.value = ''
+    } else {
+        alert('请勿输入空格')
+    }
+}
+// 验证用户的内容
+const dataUserTest = (res) => {
+    for (let i = 0; i < res.length; i++) {
+        if (res[i] === ' ') {
+            return false
+        } else {
+            return true
+        }
+    }
+}
+
+// 转义用户的内容
+const dataUserFrom = (res) => {
+    return res.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
 // AI 响应信息
 const dataAI = async () => {
     flag.value = true
     let res = await axios({
         method: 'GET',
         url: `https://v2.api-m.com/api/chatgpt?msg=${dataUser.value}`,
-        // url: `http://apis.liaomengyun.top/API/qing_chat.php?msg=${dataUser.value}`,
     })
     if (res.data.msg === '系统错误') {
         dataAll.value += `<pre> 系统错误，请稍后重试</pre> `
@@ -25,28 +49,11 @@ const dataAI = async () => {
         flag.value = false
     }
 }
-
 // 转义ai响应信息
 const dataFrom = (res) => {
-    let dataCode = res.data.data.split('')
-    dataCode = dataCode.map(char => {
-        if (char === '<') {
-            return '&lt;'
-        } else if (char === '>') {
-            return '&gt;'
-        } else {
-            return char
-        }
-    })
-    dataCode = dataCode.join('')
-    return dataCode
+    return res.data.data.replace(/</g, '&lt;').replace(/>/g, '&gt;')
 }
-// 发送信息
-const send = () => {
-    dataAll.value += `<p><span class="box">${dataUser.value}</span></p>`
-    dataAI()
-    dataUser.value = ''
-}
+
 // 清屏
 const dataDelete = () => {
     dataAll.value = ''
@@ -71,7 +78,7 @@ onUpdated(() => {
         </div>
         <div div class=" content" ref="el" v-html="dataAll" :style="{ backgroundColor: bgColor }"></div>
         <div class="console">
-            <input type="text" placeholder="请输入内容" @keydown.enter="send" v-model="dataUser">
+            <input type="text" placeholder="请输入内容" @keydown.enter="send" v-model.trim="dataUser" required>
             <button class="btn1" @click="send">发送</button>
             <button class="btn2" @click="dataDelete">清屏</button>
         </div>

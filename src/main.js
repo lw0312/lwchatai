@@ -1,6 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+const app = createApp(App)
+
 import router from './router'
+app.use(router)
+
 
 import { Loading } from 'vant';
 import { Icon } from 'vant';
@@ -10,13 +14,13 @@ import 'vant/lib/index.css';
 
 import { createPinia } from 'pinia'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
-
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
-
-const app = createApp(App)
-app.use(router)
 app.use(pinia)
+
+
+
+
 app.use(Loading)
 app.use(Icon)
 app.mount('#app')
