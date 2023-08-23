@@ -32,7 +32,7 @@ const show = computed(() => {
     </div>
     <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
         <ul>
-            <li :style="{ color: Color }" @click="$router.push('/video')" @click.stop="showFlag = !showFlag">美女视频</li>
+            <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">美女视频</li>
         </ul>
     </div>
 </template>
