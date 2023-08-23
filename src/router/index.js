@@ -1,20 +1,20 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home/index.vue'
-import Chat from '@/views/Chat/index.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Home from "@/views/Home/index.vue";
+import Chat from "@/views/Chat/index.vue";
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes: [
+  history: createWebHistory(),
+  routes: [
+    {
+      path: "/",
+      component: Home,
+      children: [
         {
-            path: '/',
-            component: Home,
-            children: [
-                {
-                    path: '',
-                    component: Chat,
-                }
-            ]
+          path: "",
+          component: () => import("@/views/Video/video.vue"),
         },
-    ]
-})
-export default router   
+      ],
+    },
+  ],
+});
+export default router;
