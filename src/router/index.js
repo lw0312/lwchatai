@@ -13,6 +13,10 @@ const router = createRouter({
           path: "",
           component: () => import("@/views/Video/video.vue"),
         },
+        {
+          path: "/img",
+          component: () => import("@/views/Image/image.vue"),
+        },
       ],
     },
   ],

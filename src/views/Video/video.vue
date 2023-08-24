@@ -7,7 +7,6 @@ const videoEle = ref(null)
 const wheelHandler = (e) => {
     if (e.deltaY > 0) {
         location.reload()
-
     }
 }
 
@@ -37,7 +36,6 @@ const handleTouchStart = (event) => {
 }
 const handleTouchMove = (event) => {
     currentY.value = event.touches[0].clientY
-
     if (currentY.value - startY.value < 0) {
         swipeDirection.value = 'Up'
         location.reload()
