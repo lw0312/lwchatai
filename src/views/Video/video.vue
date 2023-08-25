@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-const videoUrl = ref('http://api.yujn.cn/api/xjj.php?type=video')
+const videoUrl = ref('https://api.yujn.cn/api/xjj.php?type=video')
 
 const videoEle = ref(null)
 // 鼠标下滑
