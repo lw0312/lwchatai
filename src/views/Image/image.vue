@@ -1,32 +1,32 @@
 <script setup>
 import { ref } from 'vue'
 const imgUrl = ref('http://api.yujn.cn/api/yht.php?type=image')
+
 const clickHandler = () => {
-    location.reload()
+    console.log(1);
+    // location.reload()
+}
+const touchstartHandler = () => {
+    console.log(2);
 }
 </script>
 
 <template>
-    <div>
+    <div class="outer">
         <img :src="imgUrl" alt="">
-        <div @click="clickHandler">下一张</div>
+        <button @click="clickHandler" @change="touchstartHandler">下一张</button>
     </div>
 </template>
 
 <style scoped lang="less">
-div {
+.outer {
+    width: 60%;
+    height: 90vh;
     position: relative;
+    margin: 0 auto;
 
     img {
         width: 100%;
-        height: 90vh;
-    }
-
-    div {
-        position: absolute;
-        bottom: 0px;
-        right: 0px;
-        background-color: white;
     }
 }
 </style>
