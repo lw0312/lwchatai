@@ -23,9 +23,9 @@ const touchHandler = () => {
     }
 }
 
-const clickHandler = () => {
-    console.log(videoEle.value.paused);
-}
+// const clickHandler = () => {
+//     console.log(videoEle.value.paused);
+// }
 
 // 手指上滑
 const startY = ref(0)

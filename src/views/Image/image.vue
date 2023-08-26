@@ -3,18 +3,14 @@ import { ref } from 'vue'
 const imgUrl = ref('http://api.yujn.cn/api/yht.php?type=image')
 
 const clickHandler = () => {
-    console.log(1);
-    // location.reload()
-}
-const touchstartHandler = () => {
-    console.log(2);
+    location.reload()
 }
 </script>
 
 <template>
     <div class="outer">
         <img :src="imgUrl" alt="">
-        <button @click="clickHandler" @change="touchstartHandler">下一张</button>
+        <button @click="clickHandler" @touchstart="clickHandler">下一张</button>
     </div>
 </template>
 
@@ -27,6 +23,10 @@ const touchstartHandler = () => {
 
     img {
         width: 100%;
+    }
+
+    button {
+        z-index: 10;
     }
 }
 </style>
