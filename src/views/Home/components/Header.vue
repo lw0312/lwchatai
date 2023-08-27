@@ -41,7 +41,7 @@ const show = computed(() => {
 <style lang="less" scoped>
 .header {
     width: 98vw;
-    height: 8vh;
+    height: 9vh;
     padding: 0 1vw;
     display: flex;
     justify-content: space-between;
@@ -56,16 +56,11 @@ const show = computed(() => {
         width: 15vw;
         height: 6vh;
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .right {
         width: 15vw;
         height: 6vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
 
         i {
             font-size: 6vh;
