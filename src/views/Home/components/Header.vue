@@ -31,7 +31,7 @@ const show = computed(() => {
         </div>
     </div>
     <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
-       <-- <ul>
+       <!-- <ul>
             <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">美女视频</li>
             <li :style="{ color: Color }" @click="$router.push('img')" @click.stop="showFlag = !showFlag">美女图片</li>
         </ul> -->
