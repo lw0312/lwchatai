@@ -30,12 +30,12 @@ const show = computed(() => {
             <i class="ri-moon-fill" v-else :style="{ color: Color }"></i>
         </div>
     </div>
-    <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
-       <!-- <ul>
+     <!-- <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
+      <ul>
             <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">美女视频</li>
             <li :style="{ color: Color }" @click="$router.push('img')" @click.stop="showFlag = !showFlag">美女图片</li>
-        </ul> -->
-    </div>
+        </ul> 
+    </div>-->
 </template>
 
 <style lang="less" scoped>
