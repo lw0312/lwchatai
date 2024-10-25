@@ -59,14 +59,6 @@ const show = computed(() => {
             <li :style="{ color: Color }" @click="$router.push('video11')" @click.stop="showFlag = !showFlag">cos</li>
         </ul>
     </div>
-=======
-     <!-- <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
-      <ul>
-            <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">美女视频</li>
-            <li :style="{ color: Color }" @click="$router.push('img')" @click.stop="showFlag = !showFlag">美女图片</li>
-        </ul> 
-    </div>-->
->>>>>>> 450a806e5c5433112404abad2aff26429e0fb025
 </template>
 
 <style lang="less" scoped>
