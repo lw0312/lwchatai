@@ -1,13 +1,30 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStoreSunMoon } from '@/store/index'
-const imgUrl = ref('http://api.yujn.cn/api/yht.php?type=image')
+import axios from 'axios'
+const imgUrl = ref('http://api.yujn.cn/api/heisi.php?')
 const useStore = useStoreSunMoon()
 
+const img = ref(null)
+const title = ref(null)
+const tag = ref(null)
+
+// const datalist = ref({
+//     id:null,
+//     image:null,
+//     title:null,
+//     video:null
+// })
 
 const clickHandler = () => {
     location.reload()
 }
+
+// onMounted(() => {
+//     axios.get(imgUrl.value).then(res => {
+//         datalist.value = res.data
+//     })
+// })
 
 const bgColor = computed(() => {
     return useStore.flag ? '#fff' : '#000'
@@ -17,7 +34,7 @@ const bgColor = computed(() => {
 <template>
     <div :style="{ backgroundColor: bgColor }">
         <div class="outer">
-            <img :src="imgUrl" alt="">
+            <img :src="imgUrl" alt="" style="margin-top: 2vh;">
             <button @click="clickHandler">下一张</button>
         </div>
     </div>
@@ -45,14 +62,13 @@ div {
 
         img {
             width: auto;
-            height: 88vh;
+            height: 80vh;
         }
         button {
             height: auto;
         }
     }
 }
-
 
 @media (min-width: 200px) and (max-width: 800px) {
     .outer {

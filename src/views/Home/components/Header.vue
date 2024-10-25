@@ -32,8 +32,31 @@ const show = computed(() => {
     </div>
     <div class="nav" :style="{ transform: show, backgroundColor: bgColor }">
         <ul>
-            <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">美女视频</li>
-            <li :style="{ color: Color }" @click="$router.push('img')" @click.stop="showFlag = !showFlag">美女图片</li>
+            <li style="font-weight: bold;color: blue;">图片</li>
+            <li :style="{ color: Color }" @click="$router.push('img')" @click.stop="showFlag = !showFlag">写真</li>
+            <li :style="{ color: Color }" @click="$router.push('img2')" @click.stop="showFlag = !showFlag">二次元涩图-很顶</li>
+            <li :style="{ color: Color }" @click="$router.push('img3')" @click.stop="showFlag = !showFlag">色图-超级无敌顶👍
+            </li>
+            <li :style="{ color: Color }" @click="$router.push('img4')" @click.stop="showFlag = !showFlag">普普通通黑丝</li>
+            <li :style="{ color: Color }" @click="$router.push('img5')" @click.stop="showFlag = !showFlag">随机高清图-非常清晰
+            </li>
+            <li :style="{ color: Color }" @click="$router.push('img6')" @click.stop="showFlag = !showFlag">p站r18二次元-非常清晰
+            </li>
+            <li :style="{ color: Color }" @click="$router.push('img7')" @click.stop="showFlag = !showFlag">JK萌妹</li>
+            <li :style="{ color: Color }" @click="$router.push('img8')" @click.stop="showFlag = !showFlag">随机小姐姐图片</li>
+            <li style="font-weight: bold;color: blue;">视频</li>
+            <li :style="{ color: Color }" @click="$router.push('/')" @click.stop="showFlag = !showFlag">清纯</li>
+            <li :style="{ color: Color }" @click="$router.push('video2')" @click.stop="showFlag = !showFlag">
+                大屏美女怼脸自拍，建议使用pc端观看</li>
+            <li :style="{ color: Color }" @click="$router.push('video3')" @click.stop="showFlag = !showFlag">白丝</li>
+            <li :style="{ color: Color }" @click="$router.push('video4')" @click.stop="showFlag = !showFlag">黑丝</li>
+            <li :style="{ color: Color }" @click="$router.push('video5')" @click.stop="showFlag = !showFlag">精品</li>
+            <li :style="{ color: Color }" @click="$router.push('video6')" @click.stop="showFlag = !showFlag">纯情女高</li>
+            <li :style="{ color: Color }" @click="$router.push('video7')" @click.stop="showFlag = !showFlag">吊带</li>
+            <li :style="{ color: Color }" @click="$router.push('video8')" @click.stop="showFlag = !showFlag">玉足</li>
+            <li :style="{ color: Color }" @click="$router.push('video9')" @click.stop="showFlag = !showFlag">汉服古风</li>
+            <li :style="{ color: Color }" @click="$router.push('video10')" @click.stop="showFlag = !showFlag">慢摇</li>
+            <li :style="{ color: Color }" @click="$router.push('video11')" @click.stop="showFlag = !showFlag">cos</li>
         </ul>
     </div>
 </template>
@@ -69,24 +92,24 @@ const show = computed(() => {
 }
 
 .nav {
+
     width: 100vw;
-    height: 50vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
     position: fixed;
-    z-index: 1;
+    z-index: 999;
     transform: translateY(-110vh);
     transition: .5s;
     border-bottom: 1px solid #777;
 
     ul {
         width: 80vw;
-        height: 50vh;
-        display: flex;
-        justify-content: center;
+        height: 90vh;
+        overflow-y: scroll;
 
         li {
-            width: 80vw;
+            width: 78vw;
             height: 5vh;
             border-bottom: 1px solid #ccc;
             line-height: 5vh;

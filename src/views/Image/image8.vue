@@ -1,8 +1,13 @@
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useStoreSunMoon } from '@/store/index'
-const imgUrl = ref('http://api.yujn.cn/api/yht.php?type=image')
+import axios from 'axios'
+const imgUrl = ref(' http://api.yujn.cn/api/xjjtp.php?')
 const useStore = useStoreSunMoon()
+
+const img = ref(null)
+const title = ref(null)
+const tag = ref(null)
 
 
 const clickHandler = () => {
@@ -17,7 +22,7 @@ const bgColor = computed(() => {
 <template>
     <div :style="{ backgroundColor: bgColor }">
         <div class="outer">
-            <img :src="imgUrl" alt="">
+            <img :src="imgUrl" alt="" style="margin-top: 2vh;">
             <button @click="clickHandler">下一张</button>
         </div>
     </div>
@@ -45,14 +50,13 @@ div {
 
         img {
             width: auto;
-            height: 88vh;
+            height: 80vh;
         }
         button {
             height: auto;
         }
     }
 }
-
 
 @media (min-width: 200px) and (max-width: 800px) {
     .outer {

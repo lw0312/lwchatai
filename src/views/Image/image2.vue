@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useStoreSunMoon } from '@/store/index'
-const imgUrl = ref('http://api.yujn.cn/api/yht.php?type=image')
+const imgUrl = ref('http://api.yujn.cn/api/sese.php')
 const useStore = useStoreSunMoon()
 
 
@@ -22,7 +22,6 @@ const bgColor = computed(() => {
         </div>
     </div>
 </template>
-
 <style scoped lang="less">
 div {
     height: auto;
@@ -31,7 +30,7 @@ div {
     
 }
 
-@media (min-width: 800px) and (max-width: 2000px){
+@media (min-width: 600px) and (max-width: 2000px){
     .outer {
         width: auto;
         height: auto;
@@ -42,7 +41,6 @@ div {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
         img {
             width: auto;
             height: 88vh;
@@ -54,7 +52,7 @@ div {
 }
 
 
-@media (min-width: 200px) and (max-width: 800px) {
+@media (min-width: 1px) and (max-width: 600px) {
     .outer {
         width: auto;
         height: auto;

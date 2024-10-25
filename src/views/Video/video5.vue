@@ -1,8 +1,23 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useStoreSunMoon } from '@/store/index'
+import axios from 'axios';
 const useStore = useStoreSunMoon()
-const videoUrl = ref('http://api.yujn.cn/api/xjj.php?type=video')
+const Url = ref('/kuayu/api/kuaimao.php?type=json')
+
+const datalist = ref({
+    id:null,
+    image:null,
+    title:null,
+    video:null
+})
+
+
+onMounted(() => {
+    axios.get(Url.value).then(res => {
+        datalist.value = res.data
+    })
+})
 
 const videoEle = ref(null)
 // 鼠标下滑
@@ -58,8 +73,8 @@ const bgColor = computed(() => {
 <template>
     <div class="outer" :style="{ backgroundColor: bgColor }" @wheel="wheelHandler" @touchstart="handleTouchStart"
         @touchmove="handleTouchMove" @click="clickHandler" @keydown="downHandler">
-        <video :src=videoUrl ref="videoEle" class="video" @ended="endedHandler" autoplay controls preload="metadata"
-            @touchstart="touchHandler"></video>
+        <video :src="datalist.video" ref="videoEle" class="video" @ended="endedHandler"
+            autoplay controls preload="metadata" @touchstart="touchHandler"></video>
     </div>
 </template>
 
